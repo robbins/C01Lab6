@@ -1,5 +1,6 @@
 services:
   backend:
+    image: nater100/quirknotes_backend:latest
     build:
       context: .
       dockerfile: Dockerfile_backend
@@ -14,3 +15,13 @@ services:
     image: mongo:latest
     ports:
       - "27017:27017"
+
+  frontend:
+    image: nater100/quirknotes_frontend:latest
+    build:
+      context: .
+      dockerfile: Dockerfile_frontend
+      target: frontend
+    ports:
+      - "3000:80"
+
